@@ -1,0 +1,506 @@
+/* =========================================
+   Ashley Williams — Portfolio CSS
+   Responsive: 320px → 1920px
+   ========================================= */
+
+/* ── CSS Variables ── */
+:root {
+  --teal:        #1b9db3;
+  --teal-dark:   #0f7a8c;
+  --teal-deep:   #0d5f6e;
+  --white:       #ffffff;
+  --off-white:   #f8f8f6;
+  --ink:         #1a1a1a;
+  --ink-light:   #4a4a4a;
+  --shadow-sm:   0 2px 8px rgba(0,0,0,.08);
+  --shadow-md:   0 6px 24px rgba(0,0,0,.12);
+
+  /* project card accent colours */
+  --crimson:  #a31621;
+  --violet:   #6b5ea8;
+  --forest:   #4a7c59;
+  --orchid:   #b5468b;
+  --amber:    #c98a2a;
+  --steel:    #4878a0;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  --page-pad:  clamp(1rem, 5vw, 5rem);
+  --max-width: 1200px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--off-white);
+  line-height: 1.65;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+address { font-style: normal; }
+
+/* =========================================
+   HERO / ABOUT
+   ========================================= */
+.hero {
+  background: var(--teal);
+  overflow: hidden;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.hero__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+
+/* ── Photo block ── */
+.hero__photo-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(180px, 35%, 380px);
+  align-self: stretch;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+}
+
+.hero__photo-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+  letter-spacing: -0.02em;
+}
+
+/* ── About card ── */
+.hero__card {
+  background: var(--white);
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+  flex: 1;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1;
+}
+
+.hero__card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.hero__card-text {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+}
+
+/* ── Social icons (shared) ── */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--ink);
+  transition: opacity 0.2s;
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.social-icon:hover { opacity: 0.6; }
+
+.social-icons--light .social-icon {
+  color: var(--white);
+  background: rgba(255,255,255,.15);
+  border-radius: 6px;
+  width: 36px;
+  height: 36px;
+}
+
+.social-icons--light .social-icon:hover {
+  background: rgba(255,255,255,.28);
+  opacity: 1;
+}
+
+
+/* =========================================
+   MY WORK
+   ========================================= */
+.work {
+  padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 7vw, 6rem);
+}
+
+.work__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--page-pad);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--ink);
+}
+
+/* ── Projects grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+/* ── Project card ── */
+.project-card {
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.project-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.project-card__thumb {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+  font-weight: 400;
+  color: rgba(255,255,255,.85);
+  text-align: center;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+.project-card__thumb--crimson { background: var(--crimson); }
+.project-card__thumb--violet  { background: var(--violet); }
+.project-card__thumb--forest  { background: var(--forest); }
+.project-card__thumb--orchid  { background: var(--orchid); }
+.project-card__thumb--amber   { background: var(--amber); }
+.project-card__thumb--steel   { background: var(--steel); }
+
+.project-card__body {
+  padding: 0.875rem 1rem 1.1rem;
+}
+
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.project-card__name {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.6vw, 1rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.project-card__links {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  color: var(--ink);
+  transition: opacity 0.2s;
+}
+
+.card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.card-icon:hover { opacity: 0.5; }
+
+.project-card__desc {
+  font-size: clamp(0.78rem, 1.3vw, 0.875rem);
+  color: var(--ink-light);
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   CONTACT FOOTER
+   ========================================= */
+.contact {
+  background: var(--teal);
+  overflow: hidden;
+}
+
+.contact__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 4.5rem) var(--page-pad) 0;
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.contact__info {
+  flex: 1;
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+
+.contact__tagline {
+  color: rgba(255,255,255,.9);
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.contact__address {
+  color: rgba(255,255,255,.85);
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.contact__details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact__details li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(255,255,255,.9);
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+}
+
+.contact__details li svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: rgba(255,255,255,.75);
+}
+
+.contact__details a:hover { text-decoration: underline; }
+
+/* ── Contact photo ── */
+.contact__photo {
+  flex-shrink: 0;
+  width: clamp(200px, 40%, 420px);
+  align-self: flex-end;
+}
+
+.contact__photo-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px 4px 0 0;
+}
+
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================= */
+
+/* ── Desktop: 3 columns for projects ── */
+@media (min-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Hero: name appears top-right over the teal band */
+  .hero__name {
+    position: absolute;
+    top: 1rem;
+    right: -50%;          /* pushed to overlap the teal area */
+    bottom: auto;
+    left: auto;
+    color: var(--white);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+  }
+}
+
+/* ── Tablet: 2-col hero layout, name top-center ── */
+@media (min-width: 600px) and (max-width: 899px) {
+  .hero__inner {
+    flex-direction: column;
+  }
+
+  .hero__photo-wrap {
+    width: 100%;
+    min-height: 260px;
+  }
+
+  .hero__photo {
+    min-height: 260px;
+  }
+
+  .hero__name {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+  }
+
+  .hero__card {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 0;
+  }
+
+  .contact__photo {
+    width: 100%;
+    max-width: 420px;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+}
+
+/* ── Mobile: single-column everything ── */
+@media (max-width: 599px) {
+  .hero__inner {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .hero__photo-wrap {
+    width: 100%;
+    min-height: 280px;
+  }
+
+  .hero__photo {
+    min-height: 280px;
+  }
+
+  .hero__name {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: auto;
+    text-align: center;
+    font-size: clamp(1.8rem, 7vw, 2.4rem);
+    white-space: nowrap;
+  }
+
+  .hero__card {
+    margin-top: 0;
+    border-radius: 0;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__inner {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  .contact__photo {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .contact__photo-svg {
+    border-radius: 0;
+  }
+}
+
+/* ── Very small screens ── */
+@media (max-width: 360px) {
+  .hero__name {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero__card {
+  animation: fadeUp 0.6s ease both;
+  animation-delay: 0.15s;
+}
+
+.project-card {
+  animation: fadeUp 0.5s ease both;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.05s; }
+.project-card:nth-child(2) { animation-delay: 0.10s; }
+.project-card:nth-child(3) { animation-delay: 0.15s; }
+.project-card:nth-child(4) { animation-delay: 0.20s; }
+.project-card:nth-child(5) { animation-delay: 0.25s; }
+.project-card:nth-child(6) { animation-delay: 0.30s; }
